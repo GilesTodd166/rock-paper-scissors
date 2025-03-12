@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissors Game</title>
+</head>
+<body>
+    
+    <script>
+        /*  Declare getComputerChoice function
+            Declare compOptions var with array as results
+            Generate random number between 0 and 2
+            Assign randNum to compOptions array
+        */
+        function getComputerChoice() {
+            const compOptions = ["rock", "paper", "scissors"];
+            let randNum = Math.floor(Math.random() * 3);
+            return compOptions[randNum];
+        };
+        // console.log(getComputerChoice());
+
+        /*  Declare messageDisplayed variable and set to false;
+            Declare getHumanChoice function
+            Initialize humanChoice
+            Check if messageDisplayed has not been called with !messageDisplayed and display message accordingly, update messageDisplayed if necessary
+            Set humanChoice input to lowercase
+            Prompt user to enter a choice of these three strings "rock" "paper" "scissors"
+            Return users choice
+        */
+        let messageDisplayed = false;
+
+        function getHumanChoice() {
+
+            let humanChoice = "";
+            
+                if (!messageDisplayed) {
+                    humanChoice = window.prompt("Let's play Rock, Paper, Scissors. Enter your choice into the box. \nAfter 5 rounds, I'll tell you who the winner is!");
+                    messageDisplayed = true;
+                } else {
+                    humanChoice = window.prompt("Let's play another round!");
+                };
+
+            humanChoice = humanChoice.toLowerCase();
+
+                if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+                    return humanChoice;
+                };
+        };
+        // console.log(getHumanChoice());
+
+        function playGame() {
+
+            /*  Declare humanScore var
+                Initialize value at 0
+            */
+            var humanScore = 0;
+            /*  Declare computerScore var
+                Initialize value at 0
+            */
+            var computerScore = 0;
+
+            /*  Create a while loop using a counter to run playRound function 5 times.
+                Declare a counter var at 0
+                Initialize while loop to run until more than 5 ie 5 rounds
+                Increment counter by 1.
+            */
+            let counter = 0;
+                while (counter < 5) {
+                counter ++;
+
+                /*  Declare playRound function, define parameters as humanChoice and computerChoice
+                    Make humanChoice parameter case sensitive
+                */
+                function playRound(humanChoice, computerChoice) {
+                        if (humanChoice == "rock" && computerChoice == "rock") {
+                            alert("Rock vs Rock, it's a tie!");
+                            return;
+
+                        }  if (humanChoice == "rock" && computerChoice == "paper") {
+                            computerScore += 1;
+                            alert("Rock vs Paper, you loose!");
+                            return;
+
+                        } if (humanChoice == "rock" && computerChoice == "scissors") {
+                            humanScore += 1;
+                            alert("Rock vs Scissors, you win!");
+                            return;
+
+                        }  if (humanChoice == "paper" && computerChoice == "rock") {
+                            humanScore += 1;
+                            alert("Paper vs Rock, you win!");
+                            return;
+
+                        }  if (humanChoice == "paper" && computerChoice == "paper") {
+                            alert("Paper vs Paper, it's a tie!");
+                            return;
+
+                        } if (humanChoice == "paper" && computerChoice == "scissors") {
+                            computerScore += 1;
+                            alert("Paper vs Scissors, you loose!");
+                            return;
+
+                        }  if (humanChoice == "scissors" && computerChoice == "rock") {
+                            computerScore += 1;
+                            alert("Scissors vs Rock, you loose!");
+                            return;
+
+                        }  if (humanChoice == "scissors" && computerChoice == "paper") {
+                            humanScore += 1;
+                            alert("Scissors vs Paper, you win!");
+                            return;
+
+                        } if (humanChoice == "scissors" && computerChoice == "scissors") {
+                            alert("Scissors vs Scissors, it's a tie!");
+                            return;
+                        };
+                    };
+                    
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice();
+
+                // Console log human and computer choices to confirm choices are correct.
+                console.log("HUMAN:", humanSelection);
+                console.log("COMPUTER:", computerSelection);
+
+                playRound(humanSelection, computerSelection);
+
+                console.log("SCORE - Human:", humanScore, "| Computer:", computerScore);
+
+                };
+
+                /* Alert the user of the final score using ternary operators
+                */
+                let resultMessage = humanScore > computerScore 
+                    ? `You win! You scored ${humanScore} against ${computerScore}.`
+                    : computerScore > humanScore 
+                    ? `You lose! You scored ${humanScore} against ${computerScore}.`
+                    : `It's a draw! You scored ${humanScore} against ${computerScore}.`;
+
+                alert(resultMessage);
+
+            };
+            
+        playGame();
+
+    </script>
+
+</body>
+</html>
