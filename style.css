@@ -1,0 +1,30 @@
+* {
+    align-items: center;
+    text-align: center;;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+body {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main {
+    display:flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+#buttons {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between; /* Pushes items to the edges */
+    align-items: center; /* Aligns them vertically */
+    width: 100%; /* Ensures full width */
+}
