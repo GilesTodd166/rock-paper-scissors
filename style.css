@@ -3,6 +3,8 @@
     text-align: center;;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
+    background-color: #CBF3F0;
+    color: #FF9F1C;
 }
 
 body {
@@ -14,12 +16,23 @@ body {
 main {
     display:flex;
     flex-direction: column;
-    width: 500px;
+    width: 600px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 #buttons {
     margin-left: auto;
     margin-right: auto;
+}
+
+button {
+    background-color: #FFFFFF;
+    border-color: #4a4a4a;
+    font-weight: bold;
 }
 
 .scoreboard {
